@@ -17,19 +17,12 @@ ENV LANG en_US.UTF-8
 
 WORKDIR /root
 RUN yum -y install bzip2 \
-                   curl \
-                   curl-devel \
-                   perl-devel \
-                   perl-CPAN \
-                   tmux \
                    wget \
                    which \
-                   zlib-devel \
 	&& yum -y groupinstall "Development Tools" \
 	&& yum -y remove git \
 	&& yum -y install https://centos7.iuscommunity.org/ius-release.rpm \
 	&& yum -y install git2u-core.x86_64 \
-	&& wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh \
 	&& wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh \
 	&& bash miniconda.sh  -b -p /miniconda \
 	&& conda config --append channels conda-forge \
@@ -39,7 +32,7 @@ RUN yum -y install bzip2 \
 	&& wget https://download.opensuse.org/repositories/shells:fish:release:2/CentOS_7/shells:fish:release:2.repo -P /etc/yum.repos.d/ \
 	&& yum install -y fish \
 	&& yum -y autoremove \
-  	&& yum clean all \
+	&& yum clean all \
 	&& rm -rf /var/cache/yum
 
 # === INITIALIZE ===
