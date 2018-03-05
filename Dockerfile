@@ -33,9 +33,13 @@ RUN yum -y install bzip2 \
 	&& yum install -y fish \
 	&& yum -y autoremove \
 	&& yum clean all \
-	&& rm -rf /var/cache/yum
+	&& rm -rf /var/cache/yum \
+  && yum makecache \
+  && yum install 'graphviz*'
 
 # === INITIALIZE ===
 WORKDIR /home/
 EXPOSE 8888
+EXPOSE 5000
+EXPOSE 3128
 CMD /usr/bin/bash
