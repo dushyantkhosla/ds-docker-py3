@@ -35,7 +35,7 @@ RUN yum -y install bzip2 \
 	&& yum clean all \
 	&& rm -rf /var/cache/yum \
   && yum makecache \
-  && yum install 'graphviz*'
+  && yum install -y 'graphviz*'
 
 # === INITIALIZE ===
 WORKDIR /home/
