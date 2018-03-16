@@ -7,6 +7,8 @@ git config --global user.email $GIT_USER_MAIL
 git config --global http.proxy http://squid.service.pmicicd.ocean:3128
 cp /root/pip.conf /etc/pip.conf
 
+alias docker='sudo docker'
+
 # Print information
 echo ""
 echo ""
