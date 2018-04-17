@@ -19,6 +19,7 @@ WORKDIR /root
 RUN yum -y install bzip2 \
                    wget \
                    which \
+		   curl \
 	&& yum -y groupinstall "Development Tools" \
 	&& yum -y remove git \
 	&& yum -y install https://centos7.iuscommunity.org/ius-release.rpm \
@@ -31,6 +32,8 @@ RUN yum -y install bzip2 \
 	&& rm miniconda.sh \
 	&& wget https://download.opensuse.org/repositories/shells:fish:release:2/CentOS_7/shells:fish:release:2.repo -P /etc/yum.repos.d/ \
 	&& yum install -y fish \
+	&& curl -L https://get.oh-my.fish | fish \
+	&& omf install agnoster \
 	&& yum -y autoremove \
 	&& yum clean all \
 	&& rm -rf /var/cache/yum \
